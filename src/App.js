@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+import React ,{ Component } from 'react';
+import Showdown from 'showdown';
+import Editor from './components/Editor/Editor';
+import Preview from './components/Preview/Preview';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const converter = new Showdown.Converter(); 
+
+class App extends Component {
+  constructor () {
+    super();
+    this.state = {
+      input: '',
+      htmlText: ''
+    }
+  }
+
+  onInputChange = (event) => {
+    this.setState({input: event.target.value});
+    this.setState({htmlText: converter.makeHtml(this.state.input)});
+  }
+
+  render() {
+    const {htmlText} = this.state;
+    return (
+      <div className="App">
+        <Editor id='editor' onInputChange={this.onInputChange}/>
+        <Preview id='preview' htmlText={htmlText}/> 
+      </div>
+    );
+  }
 }
 
 export default App;
