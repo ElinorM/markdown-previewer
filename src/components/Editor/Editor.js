@@ -1,10 +1,14 @@
 import React from 'react';
 
 
-const Editor = ({ onInputChange}) => {
+const Editor = ({ input, onInputChange}) => {
 	return (
 		<div className='pa4 center'>
-			<input className='f4 pa2 w-70 h5 center' type='text' onChange={onInputChange} />
+			<textarea 
+			className='f4 pa2 w-70 h5 center'  
+			value={input} 
+			onChange={onInputChange}>
+			</textarea>
 		</div>
 	)
 }
