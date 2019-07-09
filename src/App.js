@@ -46,7 +46,7 @@ class App extends Component {
     const htmlText = converter.makeHtml(this.state.input);
     return (
       <div className="App">
-        <Editor id='editor' input={input} onInputChange={this.onInputChange}/>
+        <Editor  input={input} onInputChange={this.onInputChange}/>
         <Preview id='preview' htmlText={htmlText}/> 
       </div>
     );
