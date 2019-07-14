@@ -7,24 +7,24 @@ import './App.css';
 const converter = new Showdown.Converter(); 
 
 //Markdown Default Input
-const mdHeader1 = '# H1';
-const mdHeader2 = '## H2';
-const mdLink = '[A link](https://www.google.com)';
-const mdInlineCode= 'Inline `code`';
-const mdCodeBlock = '```javascript\nvar s = "JavaScript syntax highlighting";\n;```';
-const mdListItem = '1. First ordered list item';
-const mdBlockquote = '> Blockquote.';
-const mdImage = '[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]';
-const mdBoldedText = '**Bolded text** ';
+const mdHeader1 = '#H1   ';
+const mdHeader2 = '##H2   ';
+const mdLink = '[A link](https://www.google.com)   ';
+const mdInlineCode= 'Inline `code`   ';
+const mdCodeBlock = '```javascript\nvar s = "JavaScript syntax highlighting";\n;```   ';
+const mdListItem = '1. First ordered list item   ';
+const mdBlockquote = '>Blockquote.   ';
+const mdImage = '![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)   ';
+const mdBoldedText = '**Bolded text**    ';
 
-const mdInput = mdHeader1 + "\n" +
-  mdHeader2 + "\n" +
-  mdLink + "\n" +
-  mdInlineCode + "\n" +
-  mdCodeBlock + "\n" +
-  mdListItem + "\n" +
-  mdBlockquote + "\n" +
-  mdImage + "\n" +
+const mdInput = mdHeader1 + "\n" + 
+  mdHeader2 + "\n" + 
+  mdLink + "\n" + 
+  mdInlineCode + "\n" + 
+  mdCodeBlock + "\n" + 
+  mdListItem + "\n" + 
+  mdBlockquote + "\n" + 
+  mdImage + "\n" + 
   mdBoldedText;
 
 class App extends Component {
@@ -44,6 +44,7 @@ class App extends Component {
   render() {
     const {input} = this.state;
     const htmlText = converter.makeHtml(this.state.input);
+    
     return (
       <div className="App">
         <Editor  input={input} onInputChange={this.onInputChange}/>
